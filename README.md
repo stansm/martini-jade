@@ -1,10 +1,10 @@
-# render
+# Martini-jade
 Martini middleware/handler for easily rendering serialized JSON and HTML template responses from Jade templates.
 
 [API Reference](http://godoc.org/github.com/codegangsta/martini-contrib/render)
 
 ## Usage
-render uses Jade implementation in Go [go-floki/jade](https://github.com/go-floki/jade) package to render Jade templates.
+This middleware uses Jade implementation in Go [go-floki/jade](https://github.com/go-floki/jade) to render Jade templates.
 
 ~~~ go
 // main.go
@@ -46,7 +46,6 @@ m.Use(render.Renderer(render.Options{
   Layout: "layout", // Specify a layout template. Layouts can call {{ yield }} to render the current template.
   Extensions: []string{".jade"}, // Specify extensions to load for templates.
   Funcs: []template.FuncMap{AppHelpers}, // Specify helper function maps for templates to access.
-  Delims: render.Delims{"{[{", "}]}"}, // Sets delimiters to the specified strings.
   Charset: "UTF-8", // Sets encoding for json and html content-types. Default is "UTF-8".
   IndentJSON: true, // Output human readable JSON
 }))
@@ -83,7 +82,7 @@ package main
 
 import (
   "github.com/codegangsta/martini"
-  "github.com/codegangsta/martini-contrib/render"
+  "github.com/frogprog/martini-jade"
 )
 
 func main() {
@@ -112,7 +111,7 @@ package main
 
 import (
   "github.com/codegangsta/martini"
-  "github.com/codegangsta/martini-contrib/render"
+  "github.com/frogprog/martini-jade"
 )
 
 func main() {
